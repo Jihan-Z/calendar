@@ -8,6 +8,7 @@ const concat = require("gulp-concat");
 
 gulp.task('sass', function () {
     return gulp.src('./src/sass/*.scss')
+        .pipe(gulp.dest('./dist/css'))
         .pipe(sass().on('error', sass.logError))
         .pipe(cleanCSS({compatibility: 'ie8'}))
         .pipe(gulp.dest('./dist/css'))
