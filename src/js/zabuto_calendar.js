@@ -284,6 +284,11 @@ $.fn.zabuto_calendar = function (options) {
                             }
                         }
 
+                        if (true || $calendarElement.data('showRestDays') === true) {
+                            $dayElement.css({position: 'relative'});
+                            $dayElement.append('<div class="rest-day">休</div>');
+                        }
+
                         var $dowElement = $('<td id="' + dateId + '"></td>');
                         $dowElement.append($dayElement);
 
