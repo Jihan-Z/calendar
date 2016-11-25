@@ -41,6 +41,7 @@ $.fn.zabuto_calendar = function (options) {
         $calendarElement.data('legendList', opts.legend);
         $calendarElement.data('actionFunction', opts.action);
         $calendarElement.data('actionNavFunction', opts.action_nav);
+        $calendarElement.data('showRestDays', opts.show_rest_days);
 
         drawCalendar();
 
@@ -284,9 +285,11 @@ $.fn.zabuto_calendar = function (options) {
                             }
                         }
 
-                        if (true || $calendarElement.data('showRestDays') === true) {
-                            $dayElement.css({position: 'relative'});
-                            $dayElement.append('<div class="rest-day">休</div>');
+                        if ($calendarElement.data('showRestDays') === true) {
+                            if (dow == 0 || dow == 6) {
+                                $dayElement.css({position: 'relative'});
+                                $dayElement.append('<div class="rest-day">休</div>');
+                            }
                         }
 
                         var $dowElement = $('<td id="' + dateId + '"></td>');
@@ -616,7 +619,7 @@ $.fn.zabuto_calendar_language = function (lang) {
                 dow_labels: ["أثنين", "ثلاثاء", "اربعاء", "خميس", "جمعه", "سبت", "أحد"]
             };
             break;
-            
+
         case 'es':
             return {
                 month_labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
