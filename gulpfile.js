@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
-const browserify = require('gulp-browserify');
 const uglify = require('gulp-uglify');
 const livereload = require('gulp-livereload');
 const notify = require("gulp-notify");
@@ -19,9 +18,6 @@ gulp.task('sass', function () {
 gulp.task('js', function () {
     gulp.src('./src/js/*.js')
         .pipe(gulp.dest('./dist/js'))
-        .pipe(browserify({
-            transform: ['babelify']
-        }))
         .pipe(uglify())
         .pipe(gulp.dest('./dist/js'))
         .pipe(livereload())
