@@ -28,6 +28,18 @@
     <!-- Zabuto Calendar -->
     <script src="../src/js/zabuto_calendar.js"></script>
     <link rel="stylesheet" type="text/css" href="../dist/css/zabuto_calendar.min.css">
+    <style>
+        .rest-day {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 13px;
+            line-height: 20px;
+            padding: 0 3px;
+            background: rgb(255, 67, 61);
+            color: #fff;
+        }
+    </style>
 
 </head>
 <body>
@@ -103,7 +115,19 @@
                         cell_border: true,
                         today: true,
                         show_days: false,
-                        weekstartson: 0
+                        weekstartson: 0,
+                        action: function () {
+//                            alert(this.id);
+                            var cell = $("#" + this.id);
+                            cell.css({
+                                background: 'rgb(255, 240, 240)',
+                                position: 'relative'
+                            });
+                            cell.append('<div class="rest-day">休</div>');
+//                            var date = $("#" + this.id).data("date");
+
+//                            return myDateFunction(this.id, false);
+                        }
                     });
                 });
             </script>
@@ -111,13 +135,13 @@
         </div>
         <div class="col-xs-6 col-xs-offset-1">
 
-<code>
-&lt;!-- set the border for the days and hide the days of the week header
-     plus start the week on sunday and not monday --&gt;
-&lt;script type=&quot;application/javascript&quot;&gt;
-  $(document).ready(function () {
-    $(&quot;#my-calendar&quot;).zabuto_calendar({
-      <span>cell_border: true,
+            <code>
+                &lt;!-- set the border for the days and hide the days of the week header
+                plus start the week on sunday and not monday --&gt;
+                &lt;script type=&quot;application/javascript&quot;&gt;
+                $(document).ready(function () {
+                $(&quot;#my-calendar&quot;).zabuto_calendar({
+                <span>cell_border: true,
       today: true,
       show_days: false,
       weekstartson: 0,
@@ -125,10 +149,10 @@
         prev: '&lt;i class=&quot;fa fa-chevron-circle-left&quot;&gt;&lt;/i&gt;',
         next: '&lt;i class=&quot;fa fa-chevron-circle-right&quot;&gt;&lt;/i&gt;'
       }</span>
-    });
-  });
-&lt;/script&gt;
-</code>
+                });
+                });
+                &lt;/script&gt;
+            </code>
 
         </div>
     </div>
