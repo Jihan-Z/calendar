@@ -580,7 +580,7 @@ $.fn.zabuto_calendar_defaults = function () {
  */
 $.fn.zabuto_calendar_language = function (lang) {
     if (typeof(lang) == 'undefined' || lang === false) {
-        lang = 'en';
+        lang = 'cn';
     }
 
     switch (lang.toLowerCase()) {
@@ -595,6 +595,13 @@ $.fn.zabuto_calendar_language = function (lang) {
             return {
                 month_labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
                 dow_labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+            };
+            break;
+
+        case 'cn':
+            return {
+                month_labels: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                dow_labels: ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
             };
             break;
 
